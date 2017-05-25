@@ -1,0 +1,60 @@
+# parameters class definition for export to R6
+parameters:
+  constructor:
+    roxygen: |
+      parameters
+      @param x0: dunno what this is
+      @export
+    args:
+      - {x0: double}
+      - {c: double}
+      - {delta: double}
+      - {mu: double}
+      - {sdo: double}
+      - {sdr: double}
+      - {sro: double}
+      - {srr: double}
+      - {Ne: double}
+      - {N: double}
+      - {sigma: double}
+  active:
+    x0: {access: field, type: double}
+    c: {access: field, type: double}
+    delta: {access: field, type: double}
+    mu: {access: field, type: double}
+    sdo: {access: field, type: double}
+    sdr: {access: field, type: double}
+    sro: {access: field, type: double}
+    srr: {access: field, type: double}
+    Ne: {access: field, type: double}
+    N: {access: field, type: double}
+    sigma: {access: field, type: double}
+
+# trajectory class definition for export to R6
+trajectory:
+  constructor:
+    roxygen: |
+      trajectory
+      @param P: dunno what this is
+      @export
+    args: [P: "parameters&"]
+  methods:
+    x:
+      return_type: double
+      args: [t: int]
+  active:
+    t_fix: {access: field, type: int}
+
+# fixation_probability class definition for export to R6
+fixation_probability:
+  constructor:
+    roxygen: |
+      fixation_probability
+      @param P: dunno what this is
+      @param T: dunno what this is
+      @export
+    args: [P: "parameters&", T: "trajectory&"]
+  methods:
+    pi:
+      return_type: double
+      args: [t: int]
