@@ -1,11 +1,13 @@
 #include <EvoResistance.h>
 
-//’ p_mu
-//’
-//’ @param P
-//’ @param T
-//’ @param F
-//’ @return double
+//' p_mu
+//'
+//' p_mu
+//'
+//' @param P parameters
+//' @param T trajectory
+//' @param F fixation_probability
+//' @export
 // [[Rcpp::export]]
 double p_mu(parameters& P, trajectory& T, fixation_probability& F)
 {
@@ -23,12 +25,14 @@ double p_mu(parameters& P, trajectory& T, fixation_probability& F)
   return 1-p_cum;
 }
 
-//’ p_delta
-//’
-//’ @param P
-//’ @param T
-//’ @param F
-//’ @return double
+//' p_delta
+//'
+//' p_delta
+//'
+//' @param P parameters
+//' @param T trajectory
+//' @param F fixation_probability
+//' @export
 // [[Rcpp::export]]
 double p_delta(parameters& P, trajectory& T, fixation_probability& F)
 {
@@ -46,12 +50,13 @@ double p_delta(parameters& P, trajectory& T, fixation_probability& F)
   return 1-p_cum;
 }
 
-//’ p_sgv
-//’
-//’ @param P
-//’ @param T
-//’ @param F
-//’ @return double
+//' p_sgv
+//'
+//' p_sgv
+//'
+//' @param P parameters
+//' @param F fixation_probability
+//' @export
 // [[Rcpp::export]]
 double p_sgv(parameters& P, fixation_probability& F)
 {
