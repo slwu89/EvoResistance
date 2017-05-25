@@ -34,3 +34,7 @@ vignettes/*.pdf
 
 .DS_Store
 .Rproj.user
+
+*.o
+*.so
+*.dll

@@ -6,44 +6,6 @@
 
 using namespace Rcpp;
 
-// p_mu
-double p_mu(parameters& P, trajectory& T, fixation_probability& F);
-RcppExport SEXP EvoResistance_p_mu(SEXP PSEXP, SEXP TSEXP, SEXP FSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< parameters& >::type P(PSEXP);
-    Rcpp::traits::input_parameter< trajectory& >::type T(TSEXP);
-    Rcpp::traits::input_parameter< fixation_probability& >::type F(FSEXP);
-    rcpp_result_gen = Rcpp::wrap(p_mu(P, T, F));
-    return rcpp_result_gen;
-END_RCPP
-}
-// p_delta
-double p_delta(parameters& P, trajectory& T, fixation_probability& F);
-RcppExport SEXP EvoResistance_p_delta(SEXP PSEXP, SEXP TSEXP, SEXP FSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< parameters& >::type P(PSEXP);
-    Rcpp::traits::input_parameter< trajectory& >::type T(TSEXP);
-    Rcpp::traits::input_parameter< fixation_probability& >::type F(FSEXP);
-    rcpp_result_gen = Rcpp::wrap(p_delta(P, T, F));
-    return rcpp_result_gen;
-END_RCPP
-}
-// p_sgv
-double p_sgv(parameters& P, fixation_probability& F);
-RcppExport SEXP EvoResistance_p_sgv(SEXP PSEXP, SEXP FSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< parameters& >::type P(PSEXP);
-    Rcpp::traits::input_parameter< fixation_probability& >::type F(FSEXP);
-    rcpp_result_gen = Rcpp::wrap(p_sgv(P, F));
-    return rcpp_result_gen;
-END_RCPP
-}
 // parameters__ctor
 parameters parameters__ctor(double x0, double c, double delta, double mu, double sdo, double sdr, double sro, double srr, double Ne, double N, double sigma);
 RcppExport SEXP EvoResistance_parameters__ctor(SEXP x0SEXP, SEXP cSEXP, SEXP deltaSEXP, SEXP muSEXP, SEXP sdoSEXP, SEXP sdrSEXP, SEXP sroSEXP, SEXP srrSEXP, SEXP NeSEXP, SEXP NSEXP, SEXP sigmaSEXP) {
@@ -376,11 +338,46 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// p_mu
+double p_mu(parameters& P, trajectory& T, fixation_probability& F);
+RcppExport SEXP EvoResistance_p_mu(SEXP PSEXP, SEXP TSEXP, SEXP FSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< parameters& >::type P(PSEXP);
+    Rcpp::traits::input_parameter< trajectory& >::type T(TSEXP);
+    Rcpp::traits::input_parameter< fixation_probability& >::type F(FSEXP);
+    rcpp_result_gen = Rcpp::wrap(p_mu(P, T, F));
+    return rcpp_result_gen;
+END_RCPP
+}
+// p_delta
+double p_delta(parameters& P, trajectory& T, fixation_probability& F);
+RcppExport SEXP EvoResistance_p_delta(SEXP PSEXP, SEXP TSEXP, SEXP FSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< parameters& >::type P(PSEXP);
+    Rcpp::traits::input_parameter< trajectory& >::type T(TSEXP);
+    Rcpp::traits::input_parameter< fixation_probability& >::type F(FSEXP);
+    rcpp_result_gen = Rcpp::wrap(p_delta(P, T, F));
+    return rcpp_result_gen;
+END_RCPP
+}
+// p_sgv
+double p_sgv(parameters& P, fixation_probability& F);
+RcppExport SEXP EvoResistance_p_sgv(SEXP PSEXP, SEXP FSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< parameters& >::type P(PSEXP);
+    Rcpp::traits::input_parameter< fixation_probability& >::type F(FSEXP);
+    rcpp_result_gen = Rcpp::wrap(p_sgv(P, F));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
-    {"EvoResistance_p_mu", (DL_FUNC) &EvoResistance_p_mu, 3},
-    {"EvoResistance_p_delta", (DL_FUNC) &EvoResistance_p_delta, 3},
-    {"EvoResistance_p_sgv", (DL_FUNC) &EvoResistance_p_sgv, 2},
     {"EvoResistance_parameters__ctor", (DL_FUNC) &EvoResistance_parameters__ctor, 11},
     {"EvoResistance_parameters__x0__get", (DL_FUNC) &EvoResistance_parameters__x0__get, 1},
     {"EvoResistance_parameters__x0__set", (DL_FUNC) &EvoResistance_parameters__x0__set, 2},
@@ -410,6 +407,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"EvoResistance_trajectory__t_fix__set", (DL_FUNC) &EvoResistance_trajectory__t_fix__set, 2},
     {"EvoResistance_fixation_probability__ctor", (DL_FUNC) &EvoResistance_fixation_probability__ctor, 2},
     {"EvoResistance_fixation_probability__pi", (DL_FUNC) &EvoResistance_fixation_probability__pi, 2},
+    {"EvoResistance_p_mu", (DL_FUNC) &EvoResistance_p_mu, 3},
+    {"EvoResistance_p_delta", (DL_FUNC) &EvoResistance_p_delta, 3},
+    {"EvoResistance_p_sgv", (DL_FUNC) &EvoResistance_p_sgv, 2},
     {NULL, NULL, 0}
 };
 
