@@ -2,8 +2,21 @@
 parameters:
   constructor:
     roxygen: |
-      parameters
-      @param x0: dunno what this is
+      Parameters object for EvoResistance simulations.
+     
+      This creates an object "Parameters" that contains all of the parameters for the simulation. It is the input for all further classes and functions used to calulate the allele frequences and probability of mutation from different sources.
+      @param x0: Introduction frequency of driver allele.
+      @param c: Cleavage rate in drive/wild-type heterozygotes.
+      @param delta: Fraction of cleavage events resulting in a resistant allele by NHEJ.
+      @param mu: Mutation rate of wild-type alleles, resulting in resistant allele.
+      @param sdo: Fitness cost of driver/wild-type heterozygote.
+      @param sdr: Fitness cost of driver/resistant heterozygote.
+      @param sro: Fitness cost of resistant/wild-type heterozygote.
+      @param sdd: Fitness cost of driver homozote.
+      @param srr: Fitness cost of resistant homozygote.
+      @param Ne: Variance effective population size.
+      @param N: Census population size.
+      @param sigma: Precision for simulations.
       @export
     args:
       - {x0: double}
@@ -13,6 +26,7 @@ parameters:
       - {sdo: double}
       - {sdr: double}
       - {sro: double}
+      - {sdd: double}
       - {srr: double}
       - {Ne: double}
       - {N: double}
@@ -25,6 +39,7 @@ parameters:
     sdo: {access: field, type: double}
     sdr: {access: field, type: double}
     sro: {access: field, type: double}
+    sdd: {access: field, type: double}
     srr: {access: field, type: double}
     Ne: {access: field, type: double}
     N: {access: field, type: double}
@@ -34,8 +49,10 @@ parameters:
 trajectory:
   constructor:
     roxygen: |
-      trajectory
-      @param P: dunno what this is
+      Trajectory object for EvoResistance simulations.
+      
+      This class calculates the driver allele frequency and stores it as a vector. It runs until the allele frequency is >= 1-1/(2*P.N) or if the time exceeds 1e4. 
+      @param P: Parameter object. Create this using the "parameters()" constructor. 
       @export
     args: [P: "parameters&"]
   methods:
@@ -49,9 +66,11 @@ trajectory:
 fixation_probability:
   constructor:
     roxygen: |
-      fixation_probability
-      @param P: dunno what this is
-      @param T: dunno what this is
+      Fixation_probability object for EvoResistance simulations.      
+      
+      This class calculates the fixation probability of the driver allele.
+      @param P: Parameter object. Create this using the "parameters()" constructor.
+      @param T: Trajectory object. Create this using the "trajectory()" constructor.
       @export
     args: [P: "parameters&", T: "trajectory&"]
   methods:

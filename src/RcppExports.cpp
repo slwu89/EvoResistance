@@ -45,8 +45,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // parameters__ctor
-parameters parameters__ctor(double x0, double c, double delta, double mu, double sdo, double sdr, double sro, double srr, double Ne, double N, double sigma);
-RcppExport SEXP EvoResistance_parameters__ctor(SEXP x0SEXP, SEXP cSEXP, SEXP deltaSEXP, SEXP muSEXP, SEXP sdoSEXP, SEXP sdrSEXP, SEXP sroSEXP, SEXP srrSEXP, SEXP NeSEXP, SEXP NSEXP, SEXP sigmaSEXP) {
+parameters parameters__ctor(double x0, double c, double delta, double mu, double sdo, double sdr, double sro, double sdd, double srr, double Ne, double N, double sigma);
+RcppExport SEXP EvoResistance_parameters__ctor(SEXP x0SEXP, SEXP cSEXP, SEXP deltaSEXP, SEXP muSEXP, SEXP sdoSEXP, SEXP sdrSEXP, SEXP sroSEXP, SEXP sddSEXP, SEXP srrSEXP, SEXP NeSEXP, SEXP NSEXP, SEXP sigmaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -57,11 +57,12 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type sdo(sdoSEXP);
     Rcpp::traits::input_parameter< double >::type sdr(sdrSEXP);
     Rcpp::traits::input_parameter< double >::type sro(sroSEXP);
+    Rcpp::traits::input_parameter< double >::type sdd(sddSEXP);
     Rcpp::traits::input_parameter< double >::type srr(srrSEXP);
     Rcpp::traits::input_parameter< double >::type Ne(NeSEXP);
     Rcpp::traits::input_parameter< double >::type N(NSEXP);
     Rcpp::traits::input_parameter< double >::type sigma(sigmaSEXP);
-    rcpp_result_gen = Rcpp::wrap(parameters__ctor(x0, c, delta, mu, sdo, sdr, sro, srr, Ne, N, sigma));
+    rcpp_result_gen = Rcpp::wrap(parameters__ctor(x0, c, delta, mu, sdo, sdr, sro, sdd, srr, Ne, N, sigma));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -216,6 +217,28 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< EvoResistance::RcppR6::RcppR6<parameters> >::type obj_(obj_SEXP);
     Rcpp::traits::input_parameter< double >::type value(valueSEXP);
     parameters__sro__set(obj_, value);
+    return R_NilValue;
+END_RCPP
+}
+// parameters__sdd__get
+double parameters__sdd__get(EvoResistance::RcppR6::RcppR6<parameters> obj_);
+RcppExport SEXP EvoResistance_parameters__sdd__get(SEXP obj_SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< EvoResistance::RcppR6::RcppR6<parameters> >::type obj_(obj_SEXP);
+    rcpp_result_gen = Rcpp::wrap(parameters__sdd__get(obj_));
+    return rcpp_result_gen;
+END_RCPP
+}
+// parameters__sdd__set
+void parameters__sdd__set(EvoResistance::RcppR6::RcppR6<parameters> obj_, double value);
+RcppExport SEXP EvoResistance_parameters__sdd__set(SEXP obj_SEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< EvoResistance::RcppR6::RcppR6<parameters> >::type obj_(obj_SEXP);
+    Rcpp::traits::input_parameter< double >::type value(valueSEXP);
+    parameters__sdd__set(obj_, value);
     return R_NilValue;
 END_RCPP
 }
@@ -381,7 +404,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"EvoResistance_p_mu", (DL_FUNC) &EvoResistance_p_mu, 3},
     {"EvoResistance_p_delta", (DL_FUNC) &EvoResistance_p_delta, 3},
     {"EvoResistance_p_sgv", (DL_FUNC) &EvoResistance_p_sgv, 2},
-    {"EvoResistance_parameters__ctor", (DL_FUNC) &EvoResistance_parameters__ctor, 11},
+    {"EvoResistance_parameters__ctor", (DL_FUNC) &EvoResistance_parameters__ctor, 12},
     {"EvoResistance_parameters__x0__get", (DL_FUNC) &EvoResistance_parameters__x0__get, 1},
     {"EvoResistance_parameters__x0__set", (DL_FUNC) &EvoResistance_parameters__x0__set, 2},
     {"EvoResistance_parameters__c__get", (DL_FUNC) &EvoResistance_parameters__c__get, 1},
@@ -396,6 +419,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"EvoResistance_parameters__sdr__set", (DL_FUNC) &EvoResistance_parameters__sdr__set, 2},
     {"EvoResistance_parameters__sro__get", (DL_FUNC) &EvoResistance_parameters__sro__get, 1},
     {"EvoResistance_parameters__sro__set", (DL_FUNC) &EvoResistance_parameters__sro__set, 2},
+    {"EvoResistance_parameters__sdd__get", (DL_FUNC) &EvoResistance_parameters__sdd__get, 1},
+    {"EvoResistance_parameters__sdd__set", (DL_FUNC) &EvoResistance_parameters__sdd__set, 2},
     {"EvoResistance_parameters__srr__get", (DL_FUNC) &EvoResistance_parameters__srr__get, 1},
     {"EvoResistance_parameters__srr__set", (DL_FUNC) &EvoResistance_parameters__srr__set, 2},
     {"EvoResistance_parameters__Ne__get", (DL_FUNC) &EvoResistance_parameters__Ne__get, 1},

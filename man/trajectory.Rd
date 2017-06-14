@@ -2,13 +2,13 @@
 % Please edit documentation in R/RcppR6.R
 \name{trajectory}
 \alias{trajectory}
-\title{trajectory}
+\title{Trajectory object for EvoResistance simulations.}
 \usage{
 trajectory(P)
 }
 \arguments{
-\item{P:}{dunno what this is}
+\item{P:}{Parameter object. Create this using the "parameters()" constructor.}
 }
 \description{
-trajectory
+This class calculates the driver allele frequency and stores it as a vector. It runs until the allele frequency is >= 1-1/(2*P.N) or if the time exceeds 1e4.
 }

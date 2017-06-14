@@ -2,15 +2,15 @@
 % Please edit documentation in R/RcppR6.R
 \name{fixation_probability}
 \alias{fixation_probability}
-\title{fixation_probability}
+\title{Fixation_probability object for EvoResistance simulations.}
 \usage{
 fixation_probability(P, T)
 }
 \arguments{
-\item{P:}{dunno what this is}
+\item{P:}{Parameter object. Create this using the "parameters()" constructor.}
 
-\item{T:}{dunno what this is}
+\item{T:}{Trajectory object. Create this using the "trajectory()" constructor.}
 }
 \description{
-fixation_probability
+This class calculates the fixation probability of the driver allele.
 }

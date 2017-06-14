@@ -2,17 +2,17 @@
 % Please edit documentation in R/RcppExports.R
 \name{p_mu}
 \alias{p_mu}
-\title{p_mu}
+\title{Probability of resistance through de novo mutation.}
 \usage{
 p_mu(P, T, F)
 }
 \arguments{
-\item{P}{parameters}
+\item{P}{Parameter object. Create this using the "parameters()" constructor.}
 
-\item{T}{trajectory}
+\item{T}{Trajectory object. Create this using the "trajectory()" constructor.}
 
-\item{F}{fixation_probability}
+\item{F}{Fixation_probability object. Create this using the "fixation_probability()" constructor.}
 }
 \description{
-p_mu
+p_mu calculates the probability of resistance from de novo mutations. This is the probability of any mutation being resistant in t<tfix.
 }

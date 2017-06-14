@@ -2,8 +2,8 @@
 #include <EvoResistance.h>
 
 // [[Rcpp::export]]
-parameters parameters__ctor(double x0, double c, double delta, double mu, double sdo, double sdr, double sro, double srr, double Ne, double N, double sigma) {
-  return parameters(x0, c, delta, mu, sdo, sdr, sro, srr, Ne, N, sigma);
+parameters parameters__ctor(double x0, double c, double delta, double mu, double sdo, double sdr, double sro, double sdd, double srr, double Ne, double N, double sigma) {
+  return parameters(x0, c, delta, mu, sdo, sdr, sro, sdd, srr, Ne, N, sigma);
 }
 // [[Rcpp::export]]
 double parameters__x0__get(EvoResistance::RcppR6::RcppR6<parameters> obj_) {
@@ -66,6 +66,15 @@ double parameters__sro__get(EvoResistance::RcppR6::RcppR6<parameters> obj_) {
 // [[Rcpp::export]]
 void parameters__sro__set(EvoResistance::RcppR6::RcppR6<parameters> obj_, double value) {
   obj_->sro = value;
+}
+
+// [[Rcpp::export]]
+double parameters__sdd__get(EvoResistance::RcppR6::RcppR6<parameters> obj_) {
+  return obj_->sdd;
+}
+// [[Rcpp::export]]
+void parameters__sdd__set(EvoResistance::RcppR6::RcppR6<parameters> obj_, double value) {
+  obj_->sdd = value;
 }
 
 // [[Rcpp::export]]

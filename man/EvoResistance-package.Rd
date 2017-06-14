@@ -6,5 +6,14 @@
 \alias{EvoResistance-package}
 \title{EvoResistance}
 \description{
-I don't really know what these functions do.
+Functions included in this package allow for the modeling of driver allele spread as proposed by Unckless and Messer 2015.
+}
+\author{
+\strong{Maintainer}: Jared Bennett \email{temp@gmail.com}
+
+Authors:
+\itemize{
+  \item Sean Wu \email{slwu89@berkeley.edu}
+}
+
 }

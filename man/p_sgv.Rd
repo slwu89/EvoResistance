@@ -2,15 +2,15 @@
 % Please edit documentation in R/RcppExports.R
 \name{p_sgv}
 \alias{p_sgv}
-\title{p_sgv}
+\title{Probability of resistance through standing genetic variation.}
 \usage{
 p_sgv(P, F)
 }
 \arguments{
-\item{P}{parameters}
+\item{P}{Parameter object. Create this using the "parameters()" constructor.}
 
-\item{F}{fixation_probability}
+\item{F}{Fixation_probability object. Create this using the "fixation_probability()" constructor.}
 }
 \description{
-p_sgv
+p_sgv calculates the probability of resistance existing as standing genetic variation. This is the probability of resistance becoming fixed during t<tfix.
 }

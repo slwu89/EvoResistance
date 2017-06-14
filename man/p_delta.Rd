@@ -2,17 +2,17 @@
 % Please edit documentation in R/RcppExports.R
 \name{p_delta}
 \alias{p_delta}
-\title{p_delta}
+\title{Probability of resistance through NHEJ.}
 \usage{
 p_delta(P, T, F)
 }
 \arguments{
-\item{P}{parameters}
+\item{P}{Parameter object. Create this using the "parameters()" constructor.}
 
-\item{T}{trajectory}
+\item{T}{Trajectory object. Create this using the "trajectory()" constructor.}
 
-\item{F}{fixation_probability}
+\item{F}{Fixation_probability object. Create this using the "fixation_probability()" constructor.}
 }
 \description{
-p_delta
+p_delta calculates the probability of resistance from NHEJ during driver homing. This is the probability of any mutation being resistant in t<tfix.
 }
