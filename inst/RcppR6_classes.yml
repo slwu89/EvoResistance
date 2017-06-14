@@ -2,7 +2,7 @@
 parameters:
   constructor:
     roxygen: |
-      Parameters object for EvoResistance simulations.
+      Parameters object for EvoResistanceNHEJ simulations.
      
       This creates an object "Parameters" that contains all of the parameters for the simulation. It is the input for all further classes and functions used to calulate the allele frequences and probability of mutation from different sources.
       @param x0: Introduction frequency of driver allele.
@@ -49,7 +49,7 @@ parameters:
 trajectory:
   constructor:
     roxygen: |
-      Trajectory object for EvoResistance simulations.
+      Trajectory object for EvoResistanceNHEJ simulations.
       
       This class calculates the driver allele frequency and stores it as a vector. It runs until the allele frequency is >= 1-1/(2*P.N) or if the time exceeds 1e4. 
       @param P: Parameter object. Create this using the "parameters()" constructor. 
@@ -66,7 +66,7 @@ trajectory:
 fixation_probability:
   constructor:
     roxygen: |
-      Fixation_probability object for EvoResistance simulations.      
+      Fixation_probability object for EvoResistanceNHEJ simulations.      
       
       This class calculates the fixation probability of the driver allele.
       @param P: Parameter object. Create this using the "parameters()" constructor.

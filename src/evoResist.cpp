@@ -1,4 +1,4 @@
-#include <EvoResistance.h>
+#include <EvoResistanceNHEJ.h>
 
 //' Probability of resistance through de novo mutation.
 //'
@@ -11,6 +11,7 @@
 // [[Rcpp::export]]
 double p_mu(parameters& P, trajectory& T, fixation_probability& F)
   //Eqn. 13, Probability of resistance from de novo mutations. This is the probability of any mutation being resistant in t<tfix
+  //This accounts for NHEJ through s[x,P], which is used in calculating the establishment probabilities.
 {
   double p_cum = 1;
   int t=1;
@@ -45,6 +46,8 @@ double p_mu(parameters& P, trajectory& T, fixation_probability& F)
 // [[Rcpp::export]]
 double p_delta(parameters& P, trajectory& T, fixation_probability& F)
   //Eqn. 15, probability of resistance from NHEJ, from t0 to t<tfix
+  //This is accounted for through s[x,P], which is used to calculate the establishment probabilities.
+  //This doesn't account for NHEJ, though I'm not sure it needs to. There is no reason mathematically.
 {
   double p_cum = 1;
   int t=1;

@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppR6.R
 \name{parameters}
 \alias{parameters}
-\title{Parameters object for EvoResistance simulations.}
+\title{Parameters object for EvoResistanceNHEJ simulations.}
 \usage{
 parameters(x0, c, delta, mu, sdo, sdr, sro, sdd, srr, Ne, N, sigma)
 }

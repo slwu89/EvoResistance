@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppR6.R
 \name{trajectory}
 \alias{trajectory}
-\title{Trajectory object for EvoResistance simulations.}
+\title{Trajectory object for EvoResistanceNHEJ simulations.}
 \usage{
 trajectory(P)
 }

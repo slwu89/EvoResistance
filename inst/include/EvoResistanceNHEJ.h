@@ -1,6 +1,6 @@
 // -*-c++-*-
-#ifndef _EVORESISTANCE_H_
-#define _EVORESISTANCE_H_
+#ifndef _EVORESISTANCENHEJ_H_
+#define _EVORESISTANCENHEJ_H_
 
 
 #include <RcppCommon.h>
@@ -25,16 +25,17 @@ public:
 };
 
 //thoughts
-//mu does not account for mutations in driver allele that block or modify homing, ie
-//	mutations to PAM sequence (abolish homing?), or mutations in gRNA(miss-target events)
+//These equations don't include generation of resistant alleles through random mutation. This gets accounted for in probabilities
+//at the end, but not in the generation of alleles each generation. Does this matter, or is it just too much to solve for?
 
 // w function
 inline double w(double x, parameters& P)
 {
   // Average population fitness
-  // This ignores NHEJ, and assumes that resistance alleles are low in frequency, such that no homozygotes exist and the frequency
-  // of driver allels is 1-(wild type alleles). 
-  return 2*x*(1-x)*((1-P.c)*(1-P.sdo)+P.c*(1-P.sdd))+x*x*(1-P.sdd)+(1-x)*(1-x);
+  // Assumes that resistance alleles are low in frequency, such that no homozygotes exist and the frequency
+  // of driver allele is given by Xd =  1-Xo.
+  // This equation is given by taking Lim[eqn. B4, Xr->0]
+  return 2*x*(1-x)*((1-P.c)*(1-P.sdo)+P.c*(1-P.delta)*(1-P.sdd)-P.c*P.delta*(1-P.srr))+x*x*(1-P.sdd)+(1-x)*(1-x);
 }
 
 
@@ -54,9 +55,10 @@ public:
       {
 	t_fix++;
 	X.push_back(x);
-	double x_next = (x*(1-x)*((1-P.c)*(1-P.sdo)+2*P.c*(1-P.sdd)) +x*x*(1-P.sdd))/w(x,P);	//eqn. 9, frequency of driver allele
+	//Eqn. 9, with NHEJ factors. This is found by taking Lim[eqn. B1, Xr->0]
+	double x_next = (x*(1-x)*((1-P.c)*(1-P.sdo)+2*P.c*(1-P.delta)*(1-P.sdd)-P.c*P.delta*(1-P.sdr)) +x*x*(1-P.sdd))/w(x,P);
 	x = x_next;
-	if(t_fix>1e4) { Rcpp::Rcout << "NA NA NA NA"<< std::endl; Rcpp::stop("you did a bad."); }
+	if(t_fix>1e4) { Rcpp::Rcout << "NA NA NA NA"<< std::endl; Rcpp::stop("You did a bad."); }
       }
   }
   
@@ -70,14 +72,17 @@ public:
 
 inline double s(double x, parameters& P)
   //Effective selection coefficient, assuming resistance allele is rare and only exists in heterozygotes.
-  //This is a simplification of eqn. 2
+  //This begins with eqn. B2, taking Lim[B2, Xr->0] to get a modified equation 7, which is then rearranged into a modified
+  //equation 8 to account for NHEJ
 {
-  return ((1-x)*(1-P.sro)+x*(1-P.sdr))/w(x,P) - 1;	//eqn. 8
+  return ((1-x)*(1-P.sro)+x*(1-P.sdr)+(1-P.delta)*(1-x)*P.c*(1-P.sdr))/w(x,P) - 1;
 }
+
 
 
 inline double g(int t, int t_end, parameters& P, trajectory& T)
   //Preparing for eqn. 10. This is the integral of the time-depended effective selection coefficient.
+  //This accounts for NHEJ through s(x,P)
 {
   double G = 0.0;
   for(int i=t; i<t_end; i++)
@@ -91,6 +96,7 @@ inline double g(int t, int t_end, parameters& P, trajectory& T)
 inline double f(int t, int t_end, parameters& P, trajectory& T)
   //Preparing for eqn. 10. This is the integral of a lot of shit. Basically, a continuation of Uecker and Hermisson (2011),
   //it is the approximation for a time period t0 to tend<tfix. Derived in Appendix A of Unckless and Messer.
+  //This accounts for NHEJ through s(x,P)
 {
   double F = 0.0;
   for(int i=t; i<t_end; i++)
@@ -116,7 +122,8 @@ public:
 
   fixation_probability(parameters& P, trajectory& T)
 	//Eqn. 10. The for loop calculates fixation probability for t<tfix. The final if/else calculates it for t=tfix
-	//This part fills a vector of probabilities to be called later. 
+	//This part fills a vector of probabilities to be called later.
+	//This accounts for NHEJ through F, G, and s(x,P)
   {
     t_fix = T.t_fix;
     
@@ -144,7 +151,7 @@ public:
   }
 };
 
-#include <EvoResistance/RcppR6_pre.hpp>
-#include <EvoResistance/RcppR6_post.hpp>
+#include <EvoResistanceNHEJ/RcppR6_pre.hpp>
+#include <EvoResistanceNHEJ/RcppR6_post.hpp>
 
 #endif

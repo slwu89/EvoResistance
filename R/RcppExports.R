@@ -10,7 +10,7 @@
 #' @param F Fixation_probability object. Create this using the "fixation_probability()" constructor.
 #' @export
 p_mu <- function(P, T, F) {
-    .Call('EvoResistance_p_mu', PACKAGE = 'EvoResistance', P, T, F)
+    .Call('EvoResistanceNHEJ_p_mu', PACKAGE = 'EvoResistanceNHEJ', P, T, F)
 }
 
 #' Probability of resistance through NHEJ.
@@ -22,7 +22,7 @@ p_mu <- function(P, T, F) {
 #' @param F Fixation_probability object. Create this using the "fixation_probability()" constructor.
 #' @export
 p_delta <- function(P, T, F) {
-    .Call('EvoResistance_p_delta', PACKAGE = 'EvoResistance', P, T, F)
+    .Call('EvoResistanceNHEJ_p_delta', PACKAGE = 'EvoResistanceNHEJ', P, T, F)
 }
 
 #' Probability of resistance through standing genetic variation.
@@ -33,130 +33,130 @@ p_delta <- function(P, T, F) {
 #' @param F Fixation_probability object. Create this using the "fixation_probability()" constructor.
 #' @export
 p_sgv <- function(P, F) {
-    .Call('EvoResistance_p_sgv', PACKAGE = 'EvoResistance', P, F)
+    .Call('EvoResistanceNHEJ_p_sgv', PACKAGE = 'EvoResistanceNHEJ', P, F)
 }
 
 parameters__ctor <- function(x0, c, delta, mu, sdo, sdr, sro, sdd, srr, Ne, N, sigma) {
-    .Call('EvoResistance_parameters__ctor', PACKAGE = 'EvoResistance', x0, c, delta, mu, sdo, sdr, sro, sdd, srr, Ne, N, sigma)
+    .Call('EvoResistanceNHEJ_parameters__ctor', PACKAGE = 'EvoResistanceNHEJ', x0, c, delta, mu, sdo, sdr, sro, sdd, srr, Ne, N, sigma)
 }
 
 parameters__x0__get <- function(obj_) {
-    .Call('EvoResistance_parameters__x0__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__x0__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__x0__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__x0__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__x0__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__c__get <- function(obj_) {
-    .Call('EvoResistance_parameters__c__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__c__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__c__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__c__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__c__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__delta__get <- function(obj_) {
-    .Call('EvoResistance_parameters__delta__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__delta__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__delta__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__delta__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__delta__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__mu__get <- function(obj_) {
-    .Call('EvoResistance_parameters__mu__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__mu__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__mu__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__mu__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__mu__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__sdo__get <- function(obj_) {
-    .Call('EvoResistance_parameters__sdo__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__sdo__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__sdo__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__sdo__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__sdo__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__sdr__get <- function(obj_) {
-    .Call('EvoResistance_parameters__sdr__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__sdr__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__sdr__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__sdr__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__sdr__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__sro__get <- function(obj_) {
-    .Call('EvoResistance_parameters__sro__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__sro__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__sro__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__sro__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__sro__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__sdd__get <- function(obj_) {
-    .Call('EvoResistance_parameters__sdd__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__sdd__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__sdd__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__sdd__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__sdd__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__srr__get <- function(obj_) {
-    .Call('EvoResistance_parameters__srr__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__srr__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__srr__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__srr__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__srr__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__Ne__get <- function(obj_) {
-    .Call('EvoResistance_parameters__Ne__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__Ne__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__Ne__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__Ne__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__Ne__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__N__get <- function(obj_) {
-    .Call('EvoResistance_parameters__N__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__N__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__N__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__N__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__N__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 parameters__sigma__get <- function(obj_) {
-    .Call('EvoResistance_parameters__sigma__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_parameters__sigma__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 parameters__sigma__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_parameters__sigma__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_parameters__sigma__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 trajectory__ctor <- function(P) {
-    .Call('EvoResistance_trajectory__ctor', PACKAGE = 'EvoResistance', P)
+    .Call('EvoResistanceNHEJ_trajectory__ctor', PACKAGE = 'EvoResistanceNHEJ', P)
 }
 
 trajectory__x <- function(obj_, t) {
-    .Call('EvoResistance_trajectory__x', PACKAGE = 'EvoResistance', obj_, t)
+    .Call('EvoResistanceNHEJ_trajectory__x', PACKAGE = 'EvoResistanceNHEJ', obj_, t)
 }
 
 trajectory__t_fix__get <- function(obj_) {
-    .Call('EvoResistance_trajectory__t_fix__get', PACKAGE = 'EvoResistance', obj_)
+    .Call('EvoResistanceNHEJ_trajectory__t_fix__get', PACKAGE = 'EvoResistanceNHEJ', obj_)
 }
 
 trajectory__t_fix__set <- function(obj_, value) {
-    invisible(.Call('EvoResistance_trajectory__t_fix__set', PACKAGE = 'EvoResistance', obj_, value))
+    invisible(.Call('EvoResistanceNHEJ_trajectory__t_fix__set', PACKAGE = 'EvoResistanceNHEJ', obj_, value))
 }
 
 fixation_probability__ctor <- function(P, T) {
-    .Call('EvoResistance_fixation_probability__ctor', PACKAGE = 'EvoResistance', P, T)
+    .Call('EvoResistanceNHEJ_fixation_probability__ctor', PACKAGE = 'EvoResistanceNHEJ', P, T)
 }
 
 fixation_probability__pi <- function(obj_, t) {
-    .Call('EvoResistance_fixation_probability__pi', PACKAGE = 'EvoResistance', obj_, t)
+    .Call('EvoResistanceNHEJ_fixation_probability__pi', PACKAGE = 'EvoResistanceNHEJ', obj_, t)
 }
 

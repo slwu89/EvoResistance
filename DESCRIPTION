@@ -1,4 +1,4 @@
-Package: EvoResistance
+Package: EvoResistanceNHEJ
 Type: Package
 Title: Evolution of Resistance to CRISPR/CAS9 (Unckless, Messer 2015)
 Version: 0.1.0

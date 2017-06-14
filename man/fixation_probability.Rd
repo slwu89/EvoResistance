@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppR6.R
 \name{fixation_probability}
 \alias{fixation_probability}
-\title{Fixation_probability object for EvoResistance simulations.}
+\title{Fixation_probability object for EvoResistanceNHEJ simulations.}
 \usage{
 fixation_probability(P, T)
 }
